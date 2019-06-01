@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { open: false }
+  }
+
+  componentDidMount() {
+    this.myComponentRef.addEventListener("move", (e) => {
+      this.setState({ open: !this.state.open })
+    });
+  }
+
+  getComponentClass = () => {
+    return this.state.open ? 'open' : 'closed'
+  }
+
+  render() {
+    return (
+    <div className={this.getComponentClass()}>
+      <p>Component should appear below</p>
+      <my-component className={ this.getComponentClass()} ref={elem => this.myComponentRef = elem} first="Stencil" last="'Don't call me a framework' JS"></my-component>
     </div>
-  );
+    );
+  }
 }
 
 export default App;

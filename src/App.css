@@ -31,3 +31,11 @@
     transform: rotate(360deg);
   }
 }
+
+.open {
+  color: red;
+}
+
+.closed {
+  color: blue;
+}
