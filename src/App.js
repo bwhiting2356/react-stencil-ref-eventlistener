@@ -13,13 +13,13 @@ class App extends React.Component {
     });
   }
 
-  getComponentClass = () => {
+  getWrapperClass = () => {
     return this.state.open ? 'open' : 'closed'
   }
 
   render() {
     return (
-    <div className={this.getComponentClass()}>
+    <div className={this.getWrapperClass()}>
       <p>Component should appear below</p>
       <my-component 
         ref={elem => this.myComponentRef = elem}
