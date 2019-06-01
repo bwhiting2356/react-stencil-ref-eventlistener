@@ -21,7 +21,10 @@ class App extends React.Component {
     return (
     <div className={this.getComponentClass()}>
       <p>Component should appear below</p>
-      <my-component className={ this.getComponentClass()} ref={elem => this.myComponentRef = elem} first="Stencil" last="'Don't call me a framework' JS"></my-component>
+      <my-component 
+        ref={elem => this.myComponentRef = elem}
+        first="Stencil"
+        last="'Don't call me a framework' JS" />
     </div>
     );
   }
